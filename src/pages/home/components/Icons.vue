@@ -16,51 +16,16 @@
 <script>
 export default {
   name: 'HomeIcons',
+  props: {
+    iconList: Array
+  },
   data () {
-    return {
-      iconsList: [{
-        id: '0001',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20215/bdbdf2d8bbc533595440c74c7bd22af4.png',
-        desc: '热门景点'
-      }, {
-        id: '0002',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/cd9c5d035aa48862c3695becc06764e6.png',
-        desc: '热门景点'
-      }, {
-        id: '0003',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/feac0f0a895cbc7c49920238529ca6e7.png',
-        desc: '热门景点'
-      }, {
-        id: '0004',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20209/5ffcd4a916f764f678263b27c1e2e00c.png',
-        desc: '热门景点'
-      }, {
-        id: '0005',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20215/bdbdf2d8bbc533595440c74c7bd22af4.png',
-        desc: '热门景点'
-      }, {
-        id: '0006',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20215/bdbdf2d8bbc533595440c74c7bd22af4.png',
-        desc: '热门景点'
-      }, {
-        id: '0007',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20215/bdbdf2d8bbc533595440c74c7bd22af4.png',
-        desc: '热门景点'
-      }, {
-        id: '0008',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20215/bdbdf2d8bbc533595440c74c7bd22af4.png',
-        desc: '热门景点'
-      }, {
-        id: '0009',
-        imgUrl: 'https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/20215/bdbdf2d8bbc533595440c74c7bd22af4.png',
-        desc: '热门景点'
-      }]
-    }
+    return {}
   },
   computed: {
     pages () {
       const pages = []
-      this.iconsList.forEach((item, index) => {
+      this.iconList.forEach((item, index) => {
         const page = Math.floor(index / 8)
         if (!pages[page]) {
           pages[page] = []
