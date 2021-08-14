@@ -80,7 +80,7 @@ export default {
     width:100%
     height:50vw
 .icons
-    overflow hidden
+    margin-top .1rem
     .icon
         overflow hidden
         position:relative
