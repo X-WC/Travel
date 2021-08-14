@@ -7,10 +7,13 @@
             <span class="iconfont icon-search">&#xe62f;</span>
             输入城市/景点/游玩主题
         </div>
-        <div class="header-right">
-            {{city}}
-            <span class="iconfont icon-arrow">&#xe6aa;</span>
-        </div>
+        <!-- 点击城市按钮跳转到城市选择页面 -->
+        <router-link to="/city">
+            <div class="header-right">
+                {{this.city}}
+                <span class="iconfont icon-arrow">&#xe6aa;</span>
+            </div>
+        </router-link>
     </div>
 </template>
 
@@ -29,7 +32,7 @@ export default {
     display:flex
     color:#fff
     background-color:$bgColor
-    line-height:0.88rem
+    line-height:$headerHeight
     text-align:center
     .header-left
         float:left
@@ -47,6 +50,7 @@ export default {
         .icon-search
             margin-left:.2rem
     .header-right
+        color:#fff
         float:right
         width:1.28rem
         .icon-arrow
