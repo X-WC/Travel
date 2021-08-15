@@ -1,7 +1,13 @@
 <template>
     <div class="list">
         <ul>
-            <li class="item" v-for="(item,key) of cities" :key="key">{{key}}</li>
+            <li class="item"
+            v-for="(item,key) of cities"
+            :key="key"
+            @click="handleLetterClick"
+            >
+            {{key}}
+            </li>
         </ul>
     </div>
 </template>
@@ -11,6 +17,11 @@ export default {
   name: 'CityAlphabet',
   props: {
     cities: Object
+  },
+  methods: {
+    handleLetterClick (e) {
+      this.$emit('change', e.target.innerText)
+    }
   }
 }
 </script>
@@ -20,11 +31,13 @@ export default {
 .list
     display flex
     flex-direction column
-    position fixed
-    top 50%
+    justify-content center
+    position absolute
+    top 1.58rem
     right 0
+    bottom 0
     width .4rem
-    transform translateY(-50%)
+
     .item
         text-align center
         line-height .4rem

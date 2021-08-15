@@ -17,10 +17,14 @@
                         </li>
                     </ul>
                 </div>
-                <div class="area" v-for="(city,key) of cities" :key="key">
+                <div class="area"
+                v-for="(city,key) of cities"
+                :key="key"
+                :ref="key"
+                >
                 <div class="title border-topbottom">{{key}}</div>
                     <ul class="item-list">
-                        <li class="item border-bottom" v-for="item of city" :key="item.id">{{item.name}}</li>
+                        <li class="item border-bottom" v-for="item of city" :key="item.id" >{{item.name}}</li>
                     </ul>
                 </div>
         </div>
@@ -40,7 +44,20 @@ export default {
   props: {
     city: String,
     cities: Object,
-    hotCities: Array
+    hotCities: Array,
+    letter: String
+  },
+  // 添加一个监听器 监听letter的变化 如果letter变化 则改变城市显示区域
+  watch: {
+    letter () {
+      if (this.letter) {
+        // console.log(this.$refs[this.letter])
+        // this.$refs[letter]是一个数组 我们需要得到他的dom元素 this.$refs[this.letter][0]
+        const element = this.$refs[this.letter][0]
+        // better-scroll 提供了一个 scrollToElement 方法 可以让页面跳转到对应的dom元素上
+        this.scroll.scrollToElement(element)
+      }
+    }
   }
 }
 </script>
@@ -56,6 +73,7 @@ export default {
     &:before
         border-color #ccc
 .list
+    overflow hidden
     position absolute
     top 1.58rem
     left 0
