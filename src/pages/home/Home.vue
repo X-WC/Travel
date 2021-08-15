@@ -36,11 +36,10 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/static/mock/index.json').then(this.getHomeInfoSucc)
+      axios.get('/api/index.json').then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
       res = res.data
-      console.log(res)
       if (res.ret && res.data) {
         const data = res.data
         this.city = data.city
