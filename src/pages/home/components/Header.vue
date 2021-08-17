@@ -10,7 +10,7 @@
         <!-- 点击城市按钮跳转到城市选择页面 -->
         <router-link to="/city">
             <div class="header-right">
-                {{this.$store.state.city}}
+                {{this.city}}
                 <span class="iconfont icon-arrow">&#xe6aa;</span>
             </div>
         </router-link>
@@ -18,8 +18,12 @@
 </template>
 
 <script>
+import { mapState } from 'vuex'
 export default {
-  name: 'HomeHeader'
+  name: 'HomeHeader',
+  computed: {
+    ...mapState(['city'])
+  }
 }
 </script>
 
@@ -49,7 +53,8 @@ export default {
     .header-right
         color:#fff
         float:right
-        width:1.28rem
+        min-width: 1.2rem
+        padding  0 .1rem
         .icon-arrow
             margin-left: -.06rem
 </style>

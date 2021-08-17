@@ -26,14 +26,17 @@
 
 <script>
 import BetterScroll from 'better-scroll'
+import { mapMutations } from 'vuex'
 
 export default {
   name: 'CitySearch',
   methods: {
     handleCityClick (city) {
-      this.$store.commit('changeCity', city)
+      // this.$store.commit('changeCity', city)
+      this.changeCity(city)
       this.$router.push('/')
-    }
+    },
+    ...mapMutations(['changeCity'])
   },
   props: {
     // 接收父组件传进来的值
