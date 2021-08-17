@@ -72,7 +72,7 @@ export default {
             // 将数组的索引字母暴露给父组件 从而传达给兄弟组件
             this.$emit('change', this.letters[index])
           }
-        }, 16)
+        }, 8)
       }
     },
     handletouchEnd () {
