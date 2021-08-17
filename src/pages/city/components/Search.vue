@@ -12,6 +12,7 @@
                 <li class="search-item border-bottom"
                     v-for="item of list"
                     :key="item.id"
+                    @click="handleCityClick(item.name)"
                     >
                     {{item.name}}
                 </li>
@@ -28,11 +29,11 @@ import BetterScroll from 'better-scroll'
 
 export default {
   name: 'CitySearch',
-  // 确保页面可以滚动起来
-  mounted () {
-    this.scroll = new BetterScroll(this.$refs.search, {
-      click: true
-    })
+  methods: {
+    handleCityClick (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
   },
   props: {
     // 接收父组件传进来的值
@@ -76,6 +77,12 @@ export default {
     hasNoData () {
       return !this.list.length
     }
+  },
+  // 确保页面可以滚动起来
+  mounted () {
+    this.scroll = new BetterScroll(this.$refs.search, {
+      click: true
+    })
   }
 }
 </script>

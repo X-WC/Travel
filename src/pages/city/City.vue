@@ -3,7 +3,6 @@
         <city-header></city-header>
         <city-search :cities="cities"></city-search>
         <city-list
-        :city="city"
         :hotCities="hotCities"
         :cities="cities"
         :letter="letter"
@@ -44,7 +43,6 @@ export default {
     },
     getCityInfoSucc (res) {
       res = res.data
-      console.log(res)
       if (res.ret && res.data) {
         const data = res.data
         this.city = data.city

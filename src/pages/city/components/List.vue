@@ -5,14 +5,19 @@
                 <div class="title border-topbottom">当前城市</div>
                     <ul class="button-list">
                         <li class="button-wrapper">
-                            <div class="button">{{city}}</div>
+                            <div class="button">{{this.$store.state.city}}</div>
                         </li>
                     </ul>
                 </div>
                 <div class="area">
                 <div class="title border-topbottom">热门城市</div>
                     <ul class="button-list">
-                        <li class="button-wrapper" v-for="item of hotCities" :key="item.id">
+                        <li
+                        class="button-wrapper"
+                        v-for="item of hotCities"
+                        :key="item.id"
+                        @click="handleCityClick(item.name)"
+                        >
                             <div class="button">{{item.name}}</div>
                         </li>
                     </ul>
@@ -24,7 +29,12 @@
                 >
                 <div class="title border-topbottom">{{key}}</div>
                     <ul class="item-list">
-                        <li class="item border-bottom" v-for="item of city" :key="item.id" >{{item.name}}</li>
+                        <li
+                        class="item border-bottom"
+                        v-for="item of city"
+                        :key="item.id"
+                        @click="handleCityClick(item.name)"
+                         >{{item.name}}</li>
                     </ul>
                 </div>
         </div>
@@ -36,13 +46,13 @@ import BetterScroll from 'better-scroll'
 
 export default {
   name: 'CityList',
-  mounted () {
-    this.scroll = new BetterScroll(this.$refs.wrapper, {
-      click: true
-    })
+  methods: {
+    handleCityClick (city) {
+      this.$store.commit('changeCity', city)
+      this.$router.push('/')
+    }
   },
   props: {
-    city: String,
     cities: Object,
     hotCities: Array,
     letter: String
@@ -58,6 +68,11 @@ export default {
         this.scroll.scrollToElement(element)
       }
     }
+  },
+  mounted () {
+    this.scroll = new BetterScroll(this.$refs.wrapper, {
+      click: true
+    })
   }
 }
 </script>

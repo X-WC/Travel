@@ -10,7 +10,7 @@
         <!-- 点击城市按钮跳转到城市选择页面 -->
         <router-link to="/city">
             <div class="header-right">
-                {{this.city}}
+                {{this.$store.state.city}}
                 <span class="iconfont icon-arrow">&#xe6aa;</span>
             </div>
         </router-link>
@@ -19,10 +19,7 @@
 
 <script>
 export default {
-  name: 'HomeHeader',
-  props: {
-    city: String
-  }
+  name: 'HomeHeader'
 }
 </script>
 
