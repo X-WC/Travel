@@ -13,15 +13,19 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-weibiaoti1:before {
+  content: "\e630";
+}
+
+.icon-sousuo1:before {
+  content: "\e62f";
+}
+
 .icon-jiantouarrow486:before {
   content: "\e6aa";
 }
 
 .icon-fanhui:before {
   content: "\e610";
-}
-
-.icon-sousuo:before {
-  content: "\e646";
 }
 
