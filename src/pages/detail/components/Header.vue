@@ -22,7 +22,6 @@
           </div>
       </router-link>
     </div>
-    <div class="content"></div>
   </div>
 </template>
 
@@ -51,8 +50,12 @@ export default {
       }
     }
   },
-  activated () {
+  mounted () {
     window.addEventListener('scroll', this.handleScroll)
+  },
+  // 解绑全局事件 如果不进行解绑 其他页面也可以监听到scroll事件
+  destroyed () {
+    window.removeEventListener('scroll', this.handleScroll)
   }
 }
 </script>
@@ -74,6 +77,7 @@ export default {
     .header-abs-back
       color #fff
   .header-fixed
+    z-index 2
     position fixed
     top 0
     width 100%
@@ -90,6 +94,4 @@ export default {
         width:0.8rem
         height:0.88rem
         color #fff
-  .content
-    height 50rem
 </style>
