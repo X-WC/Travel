@@ -40,10 +40,12 @@ export default {
   },
   methods: {
     getHomeInfo () {
-      axios.get('/api/index.json?city=' + this.city).then(this.getHomeInfoSucc)
+      axios.get('api/index?city=' + this.city).then(this.getHomeInfoSucc)
     },
     getHomeInfoSucc (res) {
+      console.log(res)
       res = res.data
+      console.log(res.data)
       if (res.ret && res.data) {
         const data = res.data
         this.swiperList = data.swiperList
